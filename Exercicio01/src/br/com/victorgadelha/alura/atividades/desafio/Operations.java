@@ -1,6 +1,6 @@
 package desafio;
 
-public class Operations {    
+public class Operations {
 
     public User createUser(String name, double balance, String typeAccount) {
         User user = new User();
@@ -33,11 +33,11 @@ public class Operations {
 
         user.setBalance(user.getBalance() - value);
         System.out.println("Operação realizada com sucesso!");
-        //.close();
+        // .close();
     }
 
     public void recieveValue(double value, User user) {
- 
+
         if (value < 0) {
             System.out.println("Não é possível depositar valores negativos.");
             return;
