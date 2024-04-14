@@ -2,14 +2,8 @@ package atividade04;
 
 public class User {
     String name;
-    private double openingBalance;
+    double openingBalance;
     private String typeAccount;
-
-    public User(String name, double openingBalance, String typeAccount) {
-        this.name = name;
-        this.openingBalance = openingBalance;
-        this.typeAccount = typeAccount;
-    }
 
     public String getName() {
         return name;
@@ -21,6 +15,23 @@ public class User {
 
     public String getTypeAccount() {
         return typeAccount;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOpeningBalance(double openingBalance) {
+        this.openingBalance = openingBalance;
+    }
+
+    public void setTypeAccount(String typeAccount) {
+        this.typeAccount = typeAccount;
+    }
+
+    @Override
+    public String toString() {
+        return "User [name=" + name + ", openingBalance=" + openingBalance + ", typeAccount=" + typeAccount + "]";
     }
 
 }

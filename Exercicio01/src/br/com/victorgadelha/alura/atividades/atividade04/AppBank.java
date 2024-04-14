@@ -2,9 +2,10 @@ package atividade04;
 
 public class AppBank {
     public static void main(String[] args) {
-        User user = new User("João Victor Gadelha", 0, "Corrente");
         Operations operations = new Operations();
+        User user = operations.createUser("João Victor", 2453.24, "Corrente");
 
-        System.out.println(operations.getName(user));
+        System.out.println(user);
+
     }
 }
