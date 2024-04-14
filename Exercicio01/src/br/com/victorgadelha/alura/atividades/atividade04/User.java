@@ -31,7 +31,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [name=" + name + ", Balance=" + balance + ", typeAccount=" + typeAccount + "]";
+        return "User [name=" + name + ", balance=" + balance + ", typeAccount=" + typeAccount + "]";
     }
-
+    
 }

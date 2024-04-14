@@ -5,10 +5,15 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class AppBank {
-    
+    public static String formatMoney(User user) {
+        Operations operations = new Operations();
+        Locale brCurrency = Locale.of("pt", "BR");
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(brCurrency);
+        return currencyFormat.format(operations.getBalance(user));
+    }
     public static void main(String[] args) {
         Operations operations = new Operations();
-        User user = operations.createUser("João Victor", 2453.24, "Corrente");
+        User user = operations.createUser("João Victor", 20, "Corrente");
 
         System.out.println(user);
         operations.getExtract(user);
@@ -28,12 +33,16 @@ public class AppBank {
 
         switch (option) {
             case 1 -> {
-                Locale brCurrency = Locale.of("pt", "BR");
-                NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(brCurrency);
-                System.out.println(currencyFormat.format(operations.getBalance(user)));  
+                System.out.println(formatMoney(user));  
             }
-            //case 2 -> operations.getBalance();
-            //case 3 -> operations.getBalance();
+           // case 2 -> {
+               // 
+          // }
+           case 3 -> {
+                System.out.println("Digite o valor para transferência:");
+                operations.transferValue(user);
+                System.out.println("Saldo atual: " + operations.getBalance(user));
+           }
         }
     }
 }
