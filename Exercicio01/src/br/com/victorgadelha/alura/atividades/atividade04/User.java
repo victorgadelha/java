@@ -1,10 +1,26 @@
 package atividade04;
 
 public class User {
-    public static void main(String[] args) {
-        Operations operation = new Operations();
-        operation.createAccount("João Victor Gadelha", 2000, "Poupança");
-        System.out.println(operation.getName());
+    String name;
+    private double openingBalance;
+    private String typeAccount;
 
+    public User(String name, double openingBalance, String typeAccount) {
+        this.name = name;
+        this.openingBalance = openingBalance;
+        this.typeAccount = typeAccount;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getOpeningBalance() {
+        return openingBalance;
+    }
+
+    public String getTypeAccount() {
+        return typeAccount;
+    }
+
 }
