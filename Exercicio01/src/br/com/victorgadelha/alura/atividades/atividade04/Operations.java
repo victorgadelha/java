@@ -6,7 +6,7 @@ public class Operations {
         User user = new User();
 
         user.setName(name);
-        user.setOpeningBalance(openingBalance);
+        user.setBalance(openingBalance);
         user.setTypeAccount(typeAccount);
 
         return user;
@@ -16,11 +16,21 @@ public class Operations {
         return user.getName();
     }
 
-    public double getOpeningBalance(User user) {
-        return user.getOpeningBalance();
+    public double getBalance(User user) {
+        return user.getBalance();
     }
 
     public String getTypeAccount(User user) {
         return user.getTypeAccount();
+    }
+
+    public void getExtract(User user) {
+        System.out.println("""
+                ******************************
+                Nome: %s
+                Tipo conta: %s
+                Saldo inicial: %.2f
+                ******************************
+                """.formatted(user.getName(), user.getTypeAccount(), user.getBalance()));
     }
 }
