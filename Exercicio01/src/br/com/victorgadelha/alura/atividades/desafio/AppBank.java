@@ -1,4 +1,4 @@
-package atividade04;
+package desafio;
 
 import java.text.NumberFormat;
 import java.util.Locale;
