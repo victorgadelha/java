@@ -1,7 +1,5 @@
 package atividade04;
 
-import java.util.Scanner;
-
 public class Operations {    
 
     public User createUser(String name, double balance, String typeAccount) {
@@ -26,32 +24,27 @@ public class Operations {
         return user.getTypeAccount();
     }
 
-    public void transferValue(User user) {
-        Scanner scanner = new Scanner(System.in);
-        double value = scanner.nextDouble();
+    public void transferValue(double value, User user) {
 
         if (value > user.getBalance()) {
             System.out.println("Seu saldo é insuficiente.");
-            scanner.close();
             return;
         }
 
         user.setBalance(user.getBalance() - value);
-        scanner.close();
+        System.out.println("Operação realizada com sucesso!");
+        //.close();
     }
 
-    public void recieveValue(User user) {
-        Scanner scanner = new Scanner(System.in);
-        double value = scanner.nextDouble();
-
+    public void recieveValue(double value, User user) {
+ 
         if (value < 0) {
             System.out.println("Não é possível depositar valores negativos.");
-            scanner.close();
             return;
         }
 
         user.setBalance(user.getBalance() + value);
-        scanner.close();
+        System.out.println("Operação realizada com sucesso!");
     }
 
     public void getExtract(User user) {

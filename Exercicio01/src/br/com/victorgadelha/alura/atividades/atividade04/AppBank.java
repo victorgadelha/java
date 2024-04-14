@@ -38,14 +38,16 @@ public class AppBank {
                         }
 
                         case 2 -> {
-                        System.out.println("Digite o valor para depósito:");
-                        operations.recieveValue(user);
-                        System.out.println("Saldo atual: " + formatMoney(user));
+                            System.out.println("Digite o valor para depósito:");
+                            double value = scanner.nextDouble();
+                            operations.recieveValue(value, user);
+                            System.out.println("Saldo atual: " + formatMoney(user));
                        }
 
-                       case 3 -> {
+                       case 3 -> { 
                             System.out.println("Digite o valor para transferência:");
-                            operations.transferValue(user);
+                            double value = scanner.nextDouble();
+                            operations.transferValue(value, user);
                             System.out.println("Saldo atual: " + formatMoney(user));
                         }
                         
@@ -57,6 +59,7 @@ public class AppBank {
                         
                         default -> System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
                     }
+             
             }
         }  
 }
