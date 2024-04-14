@@ -23,25 +23,28 @@ public class AppBank {
                 1- Consultar saldos
                 2- Receber valor
                 3- Transferir valor
+                4- Sair
 
                 Digite a opção desejada:
                 """);
         
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
-        scanner.close();
+        //scanner.close();
 
         switch (option) {
             case 1 -> {
                 System.out.println(formatMoney(user));  
             }
-           // case 2 -> {
-               // 
-          // }
+            case 2 -> {
+            System.out.println("Digite o valor para depósito:");
+            operations.recieveValue(user);
+            System.out.println("Saldo atual: " + formatMoney(user));
+           }
            case 3 -> {
                 System.out.println("Digite o valor para transferência:");
                 operations.transferValue(user);
-                System.out.println("Saldo atual: " + operations.getBalance(user));
+                System.out.println("Saldo atual: " + formatMoney(user));
            }
         }
     }

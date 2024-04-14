@@ -29,12 +29,28 @@ public class Operations {
     public void transferValue(User user) {
         Scanner scanner = new Scanner(System.in);
         double value = scanner.nextDouble();
+
         if (value > user.getBalance()) {
-            System.out.println("Seu saldo não é insuficiente.");
+            System.out.println("Seu saldo é insuficiente.");
             scanner.close();
             return;
         }
+
         user.setBalance(user.getBalance() - value);
+        scanner.close();
+    }
+
+    public void recieveValue(User user) {
+        Scanner scanner = new Scanner(System.in);
+        double value = scanner.nextDouble();
+
+        if (value < 0) {
+            System.out.println("Não é possível depositar valores negativos.");
+            scanner.close();
+            return;
+        }
+
+        user.setBalance(user.getBalance() + value);
         scanner.close();
     }
 
