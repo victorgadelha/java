@@ -15,9 +15,10 @@ public class AppBank {
         Operations operations = new Operations();
         User user = operations.createUser("João Victor", 20, "Corrente");
 
-        System.out.println(user);
-        operations.getExtract(user);
-        System.out.println("""
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("""
                 Operações
 
                 1- Consultar saldos
@@ -27,25 +28,35 @@ public class AppBank {
 
                 Digite a opção desejada:
                 """);
-        
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        //scanner.close();
 
-        switch (option) {
-            case 1 -> {
-                System.out.println(formatMoney(user));  
+                int option = scanner.nextInt();
+
+                    switch (option) {
+
+                        case 1 -> {
+                            System.out.println("O seu saldo atual é: " + formatMoney(user));  
+                        }
+
+                        case 2 -> {
+                        System.out.println("Digite o valor para depósito:");
+                        operations.recieveValue(user);
+                        System.out.println("Saldo atual: " + formatMoney(user));
+                       }
+
+                       case 3 -> {
+                            System.out.println("Digite o valor para transferência:");
+                            operations.transferValue(user);
+                            System.out.println("Saldo atual: " + formatMoney(user));
+                        }
+                        
+                        case 4 -> {
+                            System.out.println("Obrigado por usar nossos serviços.");
+                            scanner.close();
+                            return;
+                        }
+                        
+                        default -> System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                    }
             }
-            case 2 -> {
-            System.out.println("Digite o valor para depósito:");
-            operations.recieveValue(user);
-            System.out.println("Saldo atual: " + formatMoney(user));
-           }
-           case 3 -> {
-                System.out.println("Digite o valor para transferência:");
-                operations.transferValue(user);
-                System.out.println("Saldo atual: " + formatMoney(user));
-           }
-        }
-    }
+        }  
 }
